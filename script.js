@@ -2,7 +2,7 @@ let munieco = document.querySelector(".contenedormunieco");
 let contenedor = document.querySelector(".contenedor-parrafo");
 let resultado = document.querySelector(".texto-resultado");
 let cajatexto = document.querySelector(".cajatexto");
-
+const btnCopiar = document.querySelector(".btn-copiar"); 
 
 function encriptar(){
     if(cajatexto.value === ""){
@@ -64,7 +64,6 @@ function encriptarTexto(mensaje){
         }
     }
     return textoFinal;
-
 }
 
 function desencriptarTexto(mensaje){
@@ -99,8 +98,6 @@ function desencriptarTexto(mensaje){
     }
     return textoFinal;
 }
-
-const btnCopiar = document.querySelector(".btn-copiar"); 
 
 btnCopiar.addEventListener("click", copiar = () => {
     let contenido = document.querySelector(".texto-resultado").textContent;
