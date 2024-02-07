@@ -19,7 +19,7 @@ function encriptar(){
 }
 
 function desencriptar(){
-    if(resultado.textContent === ""){
+    if(cajatexto.textContent === ""){
         const toastLiveExample = document.getElementById('errorToast')
         const toast = new bootstrap.Toast(toastLiveExample)
         document.getElementById('text-error').textContent = "No hay contenido para desencriptar";
@@ -28,7 +28,7 @@ function desencriptar(){
     else
     {
         ocultar();
-        let textoDesencriptado = desencriptarTexto(resultado.textContent);
+        let textoDesencriptado = desencriptarTexto(cajatexto.textContent);
         resultado.textContent = textoDesencriptado;
     }
 }
@@ -113,13 +113,13 @@ btnCopiar.addEventListener("click", copiar = () => {
         navigator.clipboard.writeText(contenido); 
         const toastLiveExample = document.getElementById('successToast')
         const toast = new bootstrap.Toast(toastLiveExample)
-        document.getElementById('text-success').textContent += "Texto copiado correctamente!";
+        document.getElementById('text-success').textContent = "Texto copiado correctamente!";
         toast.show()
 
     }
 });
 
-function reset (){
+function resetear(){
             if (munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
             munieco.classList.remove("ocultar");
             contenedor.classList.remove("ocultar");
@@ -130,9 +130,7 @@ function reset (){
 
 cajatexto.addEventListener("input", (e) => {
     if (cajatexto.value === "" && munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
-        munieco.classList.remove("ocultar");
-        contenedor.classList.remove("ocultar");
-        resultado.textContent = "";
+       resetear()
     }
 }
 )
