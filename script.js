@@ -6,7 +6,10 @@ let cajatexto = document.querySelector(".cajatexto");
 
 function encriptar(){
     if(cajatexto.value === ""){
-        alert("Debe ingresa un texto para encriptar");
+        const toastLiveExample = document.getElementById('errorToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('text-error').textContent = "Debe ingresa un texto para encriptar";
+        toast.show()
     }
     else
     {
@@ -16,8 +19,11 @@ function encriptar(){
 }
 
 function desencriptar(){
-    if(cajatexto.value === ""){
-        alert("Debe ingresa un texto para desencriptar");
+    if(resultado.textContent === ""){
+        const toastLiveExample = document.getElementById('errorToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('text-error').textContent = "No hay contenido para desencriptar";
+        toast.show()
     }
     else
     {
@@ -99,20 +105,31 @@ const btnCopiar = document.querySelector(".btn-copiar");
 btnCopiar.addEventListener("click", copiar = () => {
     let contenido = document.querySelector(".texto-resultado").textContent;
     if(contenido === ""){
-        alert("No hay contenido para copiar");
+        const toastLiveExample = document.getElementById('errorToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('text-error').textContent = "No hay contenido para copiar";
+        toast.show()
+
     }
     else
     {
         navigator.clipboard.writeText(contenido); 
-        if (munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
+        const toastLiveExample = document.getElementById('successToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        document.getElementById('text-success').textContent += "Texto copiado correctamente!";
+        toast.show()
+
+    }
+});
+
+function reset (){
+            if (munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
             munieco.classList.remove("ocultar");
             contenedor.classList.remove("ocultar");
             resultado.textContent = "";
             cajatexto.value = "";
         }
-        alert("Texto copiado");
-    }
-});
+}
 
 cajatexto.addEventListener("input", (e) => {
     if (cajatexto.value === "" && munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
