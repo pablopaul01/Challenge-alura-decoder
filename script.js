@@ -120,12 +120,10 @@ btnCopiar.addEventListener("click", copiar = () => {
 });
 
 function resetear(){
-            if (munieco.classList.contains("ocultar") && contenedor.classList.contains("ocultar")) {
-            munieco.classList.remove("ocultar");
-            contenedor.classList.remove("ocultar");
-            resultado.textContent = "";
-            cajatexto.value = "";
-        }
+    munieco.classList.remove("ocultar");
+    contenedor.classList.remove("ocultar");
+    resultado.textContent = "";
+    cajatexto.value = "";
 }
 
 cajatexto.addEventListener("input", (e) => {
