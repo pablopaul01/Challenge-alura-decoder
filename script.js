@@ -11,19 +11,19 @@ function encriptar(){
     else
     {
         ocultar();
-        console.log(cajatexto.value);
         resultado.textContent = encriptarTexto(cajatexto.value);
     }
 }
 
 function desencriptar(){
     if(cajatexto.value === ""){
-        alert("Debe ingresa un texto para encriptar");
+        alert("Debe ingresa un texto para desencriptar");
     }
     else
     {
         ocultar();
-        resultado.textContent = desencriptarTexto(cajatexto.value);
+        let textoDesencriptado = desencriptarTexto(resultado.textContent);
+        resultado.textContent = textoDesencriptado;
     }
 }
 
