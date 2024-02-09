@@ -19,7 +19,7 @@ function encriptar(){
 }
 
 function desencriptar(){
-    if(cajatexto.textContent === ""){
+    if(cajatexto.value === ""){
         const toastLiveExample = document.getElementById('errorToast')
         const toast = new bootstrap.Toast(toastLiveExample)
         document.getElementById('text-error').textContent = "No hay contenido para desencriptar";
@@ -28,7 +28,7 @@ function desencriptar(){
     else
     {
         ocultar();
-        let textoDesencriptado = desencriptarTexto(cajatexto.textContent);
+        let textoDesencriptado = desencriptarTexto(cajatexto.value);
         resultado.textContent = textoDesencriptado;
     }
 }
@@ -115,6 +115,7 @@ btnCopiar.addEventListener("click", copiar = () => {
         const toast = new bootstrap.Toast(toastLiveExample)
         document.getElementById('text-success').textContent = "Texto copiado correctamente!";
         toast.show()
+        resetear();
 
     }
 });
